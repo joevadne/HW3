@@ -1,0 +1,110 @@
+<html>
+
+<head>
+	<title>index</title>
+	<style>
+		body {
+			background-color: bisque;
+		}
+
+		table {
+			border: 5px solid black;
+			background-color: #B0E0E0;
+		}
+
+		th,
+		td {
+			border: 1px solid black;
+			text-align: center;
+			padding: 5px;
+		}
+	</style>
+</head>
+
+<body>
+	<center>
+		<h1>PLEASE FILL IN THE BLANK</h1></center>
+	<center>
+		<form name="form1" action="javascript:post()">
+			<b>Name:</b> <input type="text" name="name" value="" required><br><br>
+			<b>ID Number:</b> <input type="text" name="idnum" value="" required><br><br>
+			<b>Birthday:</b> <input type="date" name="birthday" required><br><br>
+			<button onclick="myFunction()">Submit</button>
+
+
+		</form>
+		<div id="p">
+
+		</div>
+	</center>
+	<script>
+		function myFunction() {
+			document.getElementById("p").innerHTML = "";
+			//alert("Your input is Name: "+name+"\n Id Number: "+idnum+"\n Birthday: "+birthday);
+			// 取得表單傳送的數值
+			var name = document.form1.name.value;
+			var idnum = document.form1.idnum.value;
+			var birthday = document.form1.birthday.value;
+			// 建立表格
+			var p1 = document.createElement("div")
+			var c1 = document.createElement("table");
+			p1.appendChild(c1);
+			// 建立列（標題與資料，須兩列）
+			var c2 = document.createElement("tr");
+			var c3 = document.createElement("tr");
+			// 表格加入列
+			c1.appendChild(c2);
+			c1.appendChild(c3);
+
+			// 建立表格標題列資料
+			var c31 = document.createElement("th");
+			var c32 = document.createElement("th");
+			var c33 = document.createElement("th");
+			var th1 = document.createTextNode("Name");
+			var th2 = document.createTextNode("Id Number");
+			var th3 = document.createTextNode("Birthday");
+			c31.appendChild(th1);
+			c32.appendChild(th2);
+			c33.appendChild(th3);
+			c2.appendChild(c31);
+			c2.appendChild(c32);
+			c2.appendChild(c33);
+
+			// 建立表格資料列資料
+			var d31 = document.createElement("td");
+			var d32 = document.createElement("td");
+			var d33 = document.createElement("td");
+			var td1 = document.createTextNode(name);
+			var td2 = document.createTextNode(idnum);
+			var td3 = document.createTextNode(birthday);
+			d31.appendChild(td1);
+			d32.appendChild(td2);
+			d33.appendChild(td3);
+			c3.appendChild(d31);
+			c3.appendChild(d32);
+			c3.appendChild(d33);
+
+			// 動態加入表格
+			var element = document.getElementById('p');
+			element.appendChild(c1);
+
+			//change color
+			c2.addEventListener("mouseover", function() {
+				this.style.color = "#F08080";
+			});
+			c2.addEventListener("mouseout", function() {
+				this.style.color = "black";
+			});
+
+			c3.addEventListener("mouseover", function() {
+				this.style.color = "#D070D0";
+			});
+			c3.addEventListener("mouseout", function() {
+				this.style.color = "black";
+			});
+
+		}
+	</script>
+</body>
+
+</html>
